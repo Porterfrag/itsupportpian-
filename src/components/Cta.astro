@@ -1,0 +1,39 @@
+---
+import Icon from './Icon.astro';
+import { site, waLink } from '../data/site';
+---
+
+<section class="section-y border-b-2 border-ink bg-accent">
+  <div class="container-x text-center">
+    <h2 class="reveal mx-auto max-w-3xl text-[clamp(2.25rem,6.5vw,4.5rem)]">
+      Masalah IT kada<br class="hidden sm:block" /> perlu ditunda
+    </h2>
+    <p class="reveal mx-auto mt-5 max-w-xl text-sm font-medium leading-relaxed text-ink/70 sm:text-base">
+      Makin lama dibiarkan, makin banyak yang hilang — data, waktu, atau uang. Chat ulun sekarang,
+      konsultasi awal gratis.
+    </p>
+
+    <div class="reveal mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <a
+        href={waLink('Halo PIAN! Ulun handak minta bantuan sekarang. Masalahnya: ')}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex w-full items-center justify-center gap-2.5 rounded-full border-2 border-ink bg-ink px-7 py-4 text-sm font-extrabold uppercase tracking-wide text-paper shadow-hard-sm transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard active:translate-x-0 active:translate-y-0 active:shadow-none sm:w-auto"
+      >
+        <Icon name="whatsapp" class="h-5 w-5" />
+        Chat WhatsApp Sekarang
+      </a>
+      <a
+        href={`mailto:${site.email}`}
+        class="inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-ink px-7 py-4 text-sm font-extrabold uppercase tracking-wide transition-colors hover:bg-ink hover:text-paper sm:w-auto"
+      >
+        <Icon name="mail" class="h-4 w-4" strokeWidth="2.2" />
+        Kirim Email
+      </a>
+    </div>
+
+    <p class="reveal mt-5 text-xs font-bold uppercase tracking-widest text-ink/50">
+      {site.hours}
+    </p>
+  </div>
+</section>

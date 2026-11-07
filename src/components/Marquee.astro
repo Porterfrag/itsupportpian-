@@ -1,0 +1,30 @@
+---
+const words = [
+  'Servis Komputer',
+  'Upgrade SSD & RAM',
+  'Install Ulang',
+  'Bersih Virus',
+  'Aplikasi Kasir',
+  'Undangan Digital',
+  'Setup WiFi',
+  'Printer Sharing',
+  'Konsultasi IT',
+];
+
+const loop = [...words, ...words];
+---
+
+<div class="marquee overflow-hidden border-b-2 border-ink bg-ink py-3.5" aria-hidden="true">
+  <div class="marquee-track flex w-max items-center gap-6">
+    {
+      loop.map((word) => (
+        <span class="flex shrink-0 items-center gap-6">
+          <span class="font-display text-sm uppercase tracking-[0.12em] text-paper/90 sm:text-base">
+            {word}
+          </span>
+          <span class="text-accent">✦</span>
+        </span>
+      ))
+    }
+  </div>
+</div>

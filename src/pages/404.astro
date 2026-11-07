@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { site, waDefault } from '../data/site';
+---
+
+<Layout
+  title="Halaman tidak ditemukan — IT Support PIAN!"
+  description="Halaman yang pian cari kada ada. Balik ke beranda atau chat langsung ulun."
+>
+  <main class="flex min-h-screen flex-col items-center justify-center bg-ink px-5 py-16 text-center text-paper">
+    <img src="/logo-lockup-white.png" alt={site.name} class="h-16 w-auto" />
+
+    <p class="mt-10 font-display text-[clamp(4rem,18vw,9rem)] leading-none text-accent">404</p>
+    <h1 class="mt-2 text-[clamp(1.5rem,4vw,2.5rem)]">Halaman kada ada, Pian!</h1>
+    <p class="mt-4 max-w-md text-sm leading-relaxed text-paper/60">
+      Mungkin linknya salah, atau halamannya sudah dipindah. Balik ke beranda dulu, atau langsung
+      chat ulun kalau butuh bantuan.
+    </p>
+
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <a
+        href="/"
+        class="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 text-xs font-extrabold uppercase tracking-wide text-ink"
+      >
+        <Icon name="arrow" class="h-4 w-4 rotate-180" strokeWidth="2.4" />
+        Balik ke beranda
+      </a>
+      <a
+        href={waDefault}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-paper/25 px-6 py-3.5 text-xs font-extrabold uppercase tracking-wide text-paper transition-colors hover:border-accent hover:text-accent"
+      >
+        <Icon name="whatsapp" class="h-4 w-4" />
+        Chat WhatsApp
+      </a>
+    </div>
+  </main>
+</Layout>

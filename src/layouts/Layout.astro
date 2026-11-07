@@ -1,0 +1,136 @@
+---
+import '@fontsource/anton/400.css';
+import '@fontsource-variable/plus-jakarta-sans';
+import '../styles/global.css';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${site.name} — Servis Komputer, Aplikasi & Undangan Digital di Banjarmasin`,
+  description = site.description,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.url).href;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${site.url}/#business`,
+  name: site.name,
+  description: site.description,
+  url: site.url,
+  image: `${site.url}/og.jpg`,
+  logo: `${site.url}/icon-512.png`,
+  telephone: `+${site.waNumber}`,
+  email: site.email,
+  priceRange: 'Rp',
+  areaServed: [
+    { '@type': 'City', name: 'Banjarmasin' },
+    { '@type': 'AdministrativeArea', name: 'Kalimantan Selatan' },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Banjarmasin',
+    addressRegion: 'Kalimantan Selatan',
+    addressCountry: 'ID',
+  },
+  sameAs: [site.instagramUrl],
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '08:00',
+      closes: '21:00',
+    },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Layanan IT Support PIAN!',
+    itemListElement: [
+      'Servis Komputer & Laptop',
+      'Pembuatan Aplikasi Khusus',
+      'Undangan Digital',
+      'Instalasi Software & Jaringan',
+    ].map((name) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name },
+    })),
+  },
+};
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="author" content={site.name} />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${site.url}/og.jpg`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={`${site.url}/og.jpg`} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+
+  <body>
+    <a
+      href="#layanan"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-5 focus:py-3 focus:text-sm focus:font-bold focus:text-ink"
+    >
+      Lompat ke konten
+    </a>
+
+    <slot />
+
+    <script>
+      // Animasi muncul saat di-scroll
+      const items = document.querySelectorAll('.reveal');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduce || !('IntersectionObserver' in window)) {
+        items.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -60px 0px', threshold: 0.08 },
+        );
+        items.forEach((el) => io.observe(el));
+      }
+
+      // Tahun berjalan di footer
+      document.querySelectorAll('[data-year]').forEach((el) => {
+        el.textContent = String(new Date().getFullYear());
+      });
+    </script>
+  </body>
+</html>

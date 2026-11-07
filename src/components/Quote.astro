@@ -1,0 +1,89 @@
+---
+import Icon from './Icon.astro';
+import { site, waLink } from '../data/site';
+
+const factors = [
+  'Jenis kerusakan atau layanan',
+  'Merek & tipe perangkat',
+  'Part yang perlu diganti',
+  'Lokasi (on-site atau dibawa ke ulun)',
+];
+---
+
+<section id="penawaran" class="section-y border-b-2 border-ink bg-paper">
+  <div class="container-x">
+    <div class="grid items-stretch gap-6 lg:grid-cols-2">
+      <div class="reveal flex flex-col justify-between rounded-2xl border-2 border-ink bg-accent p-7 shadow-hard-lg sm:p-10">
+        <div>
+          <p class="kicker">
+            <span class="h-px w-8 bg-ink"></span>
+            Harga
+          </p>
+          <h2 class="mt-4 text-[clamp(2rem,5vw,3.25rem)]">Minta penawaran dulu</h2>
+          <p class="mt-5 max-w-md text-sm font-medium leading-relaxed text-ink/75">
+            Kada ada tarif tersembunyi. Ulun kasih tahu biayanya setelah tahu masalahnya, dan
+            pekerjaan baru dimulai setelah pian setuju.
+          </p>
+
+          <ul class="mt-7 space-y-3">
+            {
+              factors.map((factor) => (
+                <li class="flex items-start gap-3 text-sm font-semibold text-ink/80">
+                  <span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-ink">
+                    <Icon name="check" class="h-3 w-3 text-accent" strokeWidth="3.5" />
+                  </span>
+                  {factor}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <a
+          href={waLink('Halo PIAN! Ulun handak minta penawaran. Kebutuhan/keluhan ulun: ')}
+          target="_blank"
+          rel="noopener"
+          class="mt-9 inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-ink bg-ink px-7 py-4 text-sm font-extrabold uppercase tracking-wide text-paper transition-transform hover:scale-[1.02]"
+        >
+          <Icon name="whatsapp" class="h-5 w-5" />
+          Minta penawaran via WA
+        </a>
+      </div>
+
+      <div class="reveal flex flex-col justify-center rounded-2xl border-2 border-ink bg-soft p-7 sm:p-10">
+        <h3 class="text-2xl sm:text-3xl">Cara cepat dapat harga</h3>
+        <p class="mt-4 text-sm leading-relaxed text-ink/65">
+          Supaya penawaran langsung pas, kirim info ini saat chat:
+        </p>
+
+        <ol class="mt-6 space-y-4">
+          {
+            [
+              'Merek dan tipe perangkat (misal: Asus X441, atau foto stiker di bawah laptop)',
+              'Gejala yang muncul, kapan mulai terjadi, dan pesan error kalau ada',
+              'Sudah pernah diperbaiki di tempat lain atau belum',
+              'Lokasi pian, untuk cek apakah bisa on-site',
+            ].map((text, i) => (
+              <li class="flex gap-4">
+                <span class="font-display text-2xl leading-none text-ink/25">{`0${i + 1}`}</span>
+                <p class="pt-0.5 text-sm leading-relaxed text-ink/70">{text}</p>
+              </li>
+            ))
+          }
+        </ol>
+
+        <div class="mt-8 rounded-xl border-2 border-ink/10 bg-paper p-4">
+          <p class="text-xs font-bold uppercase tracking-widest text-ink/40">Nomor WhatsApp</p>
+          <a
+            href={waLink('Halo PIAN!')}
+            target="_blank"
+            rel="noopener"
+            class="mt-1 block font-display text-2xl tracking-wide underline decoration-accent decoration-4 underline-offset-4 hover:decoration-ink"
+          >081528493028
+            {site.whatsappDisplay}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

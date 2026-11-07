@@ -1,0 +1,50 @@
+---
+import Icon from './Icon.astro';
+import { faqs, waLink } from '../data/site';
+---
+
+<section id="faq" class="section-y border-b-2 border-ink bg-paper">
+  <div class="container-x">
+    <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+      <div class="lg:sticky lg:top-28 lg:self-start">
+        <p class="kicker reveal">
+          <span class="h-px w-8 bg-ink"></span>
+          FAQ
+        </p>
+        <h2 class="reveal mt-4 text-[clamp(2rem,5vw,3.25rem)]">
+          Sering<br class="hidden sm:block" /> ditanyakan
+        </h2>
+        <p class="reveal mt-5 text-sm leading-relaxed text-ink/60">
+          Masih ada yang kurang jelas? Chat saja, kada perlu sungkan.
+        </p>
+        <a
+          href={waLink('Halo PIAN! Ulun handak tanya-tanya dulu.')}
+          target="_blank"
+          rel="noopener"
+          class="reveal mt-6 inline-flex items-center gap-2 rounded-full border-2 border-ink px-5 py-3 text-xs font-extrabold uppercase tracking-wide transition-colors hover:bg-ink hover:text-paper"
+        >
+          <Icon name="whatsapp" class="h-4 w-4" />
+          Tanya langsung
+        </a>
+      </div>
+
+      <div class="reveal divide-y-2 divide-ink/10 border-y-2 border-ink/10">
+        {
+          faqs.map((faq) => (
+            <details class="group">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+                <span class="font-sans text-base font-extrabold normal-case leading-snug tracking-normal text-ink sm:text-lg">
+                  {faq.q}
+                </span>
+                <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink transition-transform duration-200 group-open:rotate-45 group-open:bg-accent">
+                  <Icon name="plus" class="h-4 w-4" strokeWidth="2.5" />
+                </span>
+              </summary>
+              <p class="pb-6 pr-10 text-sm leading-relaxed text-ink/65">{faq.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

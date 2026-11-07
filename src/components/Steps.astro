@@ -1,0 +1,59 @@
+---
+import Icon from './Icon.astro';
+import { steps, waLink } from '../data/site';
+---
+
+<section id="cara-kerja" class="section-y border-b-2 border-ink bg-ink text-paper">
+  <div class="container-x">
+    <div class="max-w-2xl">
+      <p class="kicker reveal text-accent">
+        <span class="h-px w-8 bg-accent"></span>
+        Cara Kerja
+      </p>
+      <h2 class="reveal mt-4 text-[clamp(2rem,5vw,3.25rem)]">
+        Tiga langkah,<br class="hidden sm:block" /> beres.
+      </h2>
+      <p class="reveal mt-5 text-sm leading-relaxed text-paper/60">
+        Kada pakai ribet. Mulai dari chat, ulun yang urus sisanya.
+      </p>
+    </div>
+
+    <ol class="mt-12 grid gap-6 md:grid-cols-3">
+      {
+        steps.map((step, index) => (
+          <li class="reveal relative">
+            <div class="flex h-full flex-col rounded-2xl border-2 border-paper/15 bg-paper/[0.04] p-6 transition-colors hover:border-accent/60">
+              <span class="font-display text-5xl leading-none text-accent">{step.no}</span>
+              <h3 class="mt-5 text-xl text-paper sm:text-2xl">{step.title}</h3>
+              <p class="mt-2.5 text-sm leading-relaxed text-paper/60">{step.desc}</p>
+            </div>
+            {index < steps.length - 1 && (
+              <Icon
+                name="arrow"
+                class="absolute -right-4 top-1/2 z-10 hidden h-6 w-6 -translate-y-1/2 text-accent md:block"
+                strokeWidth="2.5"
+              />
+            )}
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="reveal mt-10 flex flex-col items-start gap-4 rounded-2xl border-2 border-accent/40 bg-accent/10 p-6 sm:flex-row sm:items-center sm:justify-between">
+      <p class="max-w-xl text-sm leading-relaxed text-paper/80">
+        <strong class="font-extrabold text-paper">Konsultasi awal kada dipungut biaya.</strong>
+        Ceritakan masalahnya dulu, ulun bantu tebak penyebabnya. Kalau bisa dibantu dari jauh, kada
+        perlu servis.
+      </p>
+      <a
+        href={waLink('Halo PIAN! Ulun handak konsultasi dulu soal masalah IT ulun.')}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex shrink-0 items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-xs font-extrabold uppercase tracking-wide text-ink transition-transform hover:scale-[1.03]"
+      >
+        <Icon name="whatsapp" class="h-4 w-4" />
+        Mulai konsultasi
+      </a>
+    </div>
+  </div>
+</section>

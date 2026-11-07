@@ -1,0 +1,108 @@
+---
+import Icon from './Icon.astro';
+import { site, waLink } from '../data/site';
+---
+
+<footer class="bg-ink text-paper">
+  <div class="container-x py-14 sm:py-16">
+    <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr] md:gap-8">
+      <div>
+        <a href="/" class="inline-block" aria-label={`${site.name} — beranda`}>
+          <img
+            src="/logo-lockup-white.png"
+            alt={site.name}
+            width="916"
+            height="600"
+            class="h-14 w-auto"
+          />
+        </a>
+        <p class="mt-5 max-w-xs text-sm leading-relaxed text-paper/55">
+          {site.tagline}
+        </p>
+        <p class="mt-4 text-xs leading-relaxed text-paper/35">
+          Jasa IT support untuk rumah, warung, dan usaha kecil di {site.area}.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-extrabold uppercase tracking-[0.18em] text-paper/40">Kontak</h3>
+        <ul class="mt-5 space-y-3.5 text-sm">
+          <li>
+            <a
+              href={waLink('Halo PIAN!')}
+              target="_blank"
+              rel="noopener"
+              class="group flex items-start gap-3 text-paper/80 transition-colors hover:text-accent"
+            >
+              <Icon name="whatsapp" class="mt-0.5 h-4 w-4 shrink-0" />
+              081528493028
+            </a>
+          </li>
+          <li>
+            <a
+              href={`mailto:${site.email}`}
+              class="flex items-start gap-3 break-all text-paper/80 transition-colors hover:text-accent"
+            >
+              <Icon name="mail" class="mt-0.5 h-4 w-4 shrink-0" strokeWidth="2" />
+              <span>{site.email}</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={site.instagramUrl}
+              target="_blank"
+              rel="noopener"
+              class="flex items-start gap-3 text-paper/80 transition-colors hover:text-accent"
+            >
+              <Icon name="instagram" class="mt-0.5 h-4 w-4 shrink-0" strokeWidth="2" />
+              <span>@{site.instagram}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-extrabold uppercase tracking-[0.18em] text-paper/40">Info</h3>
+        <ul class="mt-5 space-y-3.5 text-sm text-paper/80">
+          <li class="flex items-start gap-3">
+            <Icon name="pin" class="mt-0.5 h-4 w-4 shrink-0" strokeWidth="2" />
+            <span>{site.area}</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="clock" class="mt-0.5 h-4 w-4 shrink-0" strokeWidth="2" />
+            <span>{site.hours}</span>
+          </li>
+          <li>
+            <a href="#layanan" class="text-paper/80 transition-colors hover:text-accent">Layanan</a>
+          </li>
+          <li>
+            <a href="#faq" class="text-paper/80 transition-colors hover:text-accent">FAQ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="mt-12 flex flex-col gap-3 border-t border-paper/10 pt-6 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© <span data-year>2026</span> {site.name}. Hak cipta dilindungi.</p>
+      <p>Dibuat dengan bangga di rumah ulun :3</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Tombol WhatsApp mengambang -->
+<div class="fixed bottom-4 right-4 z-40 sm:bottom-6 sm:right-6">
+  <a
+    href={waLink('Halo PIAN! Ulun handak tanya-tanya dulu.')}
+    target="_blank"
+    rel="noopener"
+    class="group flex items-center gap-2.5 rounded-full border-2 border-ink bg-accent py-3 pl-3.5 pr-4 font-extrabold text-ink shadow-hard-sm transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard active:translate-x-0 active:translate-y-0 active:shadow-none"
+    aria-label="Chat via WhatsApp"
+  >
+    <span class="grid h-8 w-8 place-items-center rounded-full bg-ink">
+      <Icon name="whatsapp" class="h-4.5 w-4.5 text-accent" />
+    </span>
+    <span class="hidden text-xs uppercase tracking-wide sm:block">Chat ulun</span>
+  </a>
+</div>
