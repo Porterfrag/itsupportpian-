@@ -35,7 +35,14 @@ import { services, waLink } from '../data/site';
             </div>
 
             <div class="flex flex-1 flex-col p-5 sm:p-6">
-              <h3 class="text-xl sm:text-2xl">{service.title}</h3>
+              <h3 class="text-xl sm:text-2xl">
+                <a
+                  href={`/layanan/${service.slug}/`}
+                  class="transition-colors hover:text-accent-dark"
+                >
+                  {service.title}
+                </a>
+              </h3>
               <p class="mt-1.5 text-sm font-semibold text-ink/50">{service.short}</p>
               <p class="mt-4 text-sm leading-relaxed text-ink/70">{service.desc}</p>
 
@@ -48,15 +55,24 @@ import { services, waLink } from '../data/site';
                 ))}
               </ul>
 
-              <a
-                href={waLink(service.wa)}
-                target="_blank"
-                rel="noopener"
-                class="mt-6 inline-flex items-center justify-between gap-2 rounded-full border-2 border-ink bg-ink px-5 py-3 text-xs font-extrabold uppercase tracking-wide text-paper transition-colors hover:bg-accent hover:text-ink"
-              >
-                Tanya layanan ini
-                <Icon name="whatsapp" class="h-4 w-4" />
-              </a>
+              <div class="mt-6 flex flex-col gap-2">
+                <a
+                  href={`/layanan/${service.slug}/`}
+                  class="inline-flex items-center justify-between gap-2 rounded-full border-2 border-ink bg-paper px-5 py-3 text-xs font-extrabold uppercase tracking-wide transition-colors hover:bg-accent"
+                >
+                  Selengkapnya
+                  <Icon name="arrow" class="h-4 w-4" strokeWidth="2.4" />
+                </a>
+                <a
+                  href={waLink(service.wa)}
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center justify-between gap-2 rounded-full border-2 border-ink bg-ink px-5 py-3 text-xs font-extrabold uppercase tracking-wide text-paper transition-colors hover:bg-accent hover:text-ink"
+                >
+                  Tanya layanan ini
+                  <Icon name="whatsapp" class="h-4 w-4" />
+                </a>
+              </div>
             </div>
           </article>
         ))

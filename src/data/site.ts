@@ -29,10 +29,10 @@ export const waDefault = waLink(
 );
 
 export const nav = [
-  { label: 'Layanan', href: '#layanan' },
-  { label: 'Cara Kerja', href: '#cara-kerja' },
-  { label: 'Hasil Kerja', href: '#portofolio' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Layanan', href: '/layanan/' },
+  { label: 'Cara Kerja', href: '/#cara-kerja' },
+  { label: 'Hasil Kerja', href: '/#portofolio' },
+  { label: 'FAQ', href: '/#faq' },
 ];
 
 export const stats = [
@@ -46,6 +46,7 @@ export const services = [
     id: 'servis',
     no: '01',
     icon: 'wrench',
+    slug: 'servis-komputer-laptop-banjarmasin',
     title: 'Servis Komputer & Laptop',
     short: 'Lemot, mati sendiri, kena virus, atau layar bermasalah.',
     desc: 'Diagnosa dulu, baru dikerjakan. Bersihkan virus, install ulang, ganti part yang rusak, upgrade SSD/RAM, sampai perbaikan hardware.',
@@ -56,6 +57,7 @@ export const services = [
     id: 'aplikasi',
     no: '02',
     icon: 'code',
+    slug: 'aplikasi-kustom-banjarmasin',
     title: 'Pembuatan Aplikasi Khusus',
     short: 'Aplikasi sesuai kebutuhan usaha pian, bukan template.',
     desc: 'Butuh aplikasi kasir, stok barang, absensi, atau pencatatan yang pas dengan cara kerja pian? Ulun beulah sesuai alur usaha pian.',
@@ -66,6 +68,7 @@ export const services = [
     id: 'undangan',
     no: '03',
     icon: 'envelope',
+    slug: 'undangan-digital-banjarmasin',
     title: 'Undangan Digital',
     short: 'Undangan nikahan & acara, rapi dan mudah dibagikan.',
     desc: 'Link undangan dengan nama tamu, galeri foto, peta lokasi, RSVP, dan hitung mundur. Cocok gasan nikahan, aqiqah, atau acara keluarga.',
@@ -76,6 +79,7 @@ export const services = [
     id: 'jaringan',
     no: '04',
     icon: 'network',
+    slug: 'instalasi-jaringan-wifi-banjarmasin',
     title: 'Instalasi & Jaringan',
     short: 'Software, WiFi, printer sharing, dan konsultasi IT.',
     desc: 'Meatur WiFi supaya stabil, setting printer sharing, install software resmi, sampai benerin jaringan yang lemot di rumah atau kantor.',
@@ -167,8 +171,7 @@ export const portfolio = [
  */
 export const testimonials: { name: string; role: string; quote: string }[] = [];
 
-export const faqs = [
-  {
+export const faqs = [  {
     q: 'Apakah harus bawa perangkat ke tempat PIAN!?',
     a: 'Kada harus. Gasan servis ringan biasanya cukup dibawa ke tempat ulun, tapi kalau pian sibuk atau perangkatnya berat (PC kantor), ulun bisa datang ke lokasi. Bisa diatur lewat chat.',
   },

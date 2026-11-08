@@ -7,11 +7,14 @@ import { site } from '../data/site';
 interface Props {
   title?: string;
   description?: string;
+  /** JSON-LD tambahan khusus halaman, mis. Service / FAQPage / BreadcrumbList */
+  jsonLd?: Record<string, unknown>[];
 }
 
 const {
   title = `${site.name} — Servis Komputer, Aplikasi & Undangan Digital di Banjarmasin`,
   description = site.description,
+  jsonLd = [],
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, site.url).href;
@@ -93,6 +96,11 @@ const schema = {
     <link rel="manifest" href="/site.webmanifest" />
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    {
+      jsonLd.map((item) => (
+        <script type="application/ld+json" set:html={JSON.stringify(item)} />
+      ))
+    }
   </head>
 
   <body>

@@ -46,6 +46,28 @@ Di situ kamu bisa mengubah:
 | `testimonials` | Testimoni pelanggan |
 | `faqs` | Pertanyaan yang sering ditanya |
 
+### Halaman layanan (landing page SEO)
+
+Halaman per kata kunci ada di file terpisah:
+
+```
+src/data/layanan.ts
+```
+
+Satu objek = satu halaman di `/layanan/<slug>/`. Tambah objek baru di situ, halaman
+dan sitemap ikut terbuat otomatis. Setiap halaman punya judul, deskripsi, gejala,
+lingkup pengerjaan, area, dan FAQ sendiri — plus schema `Service` + `FAQPage`
+supaya bisa muncul sebagai hasil kaya di Google.
+
+Saat ini ada 4 halaman:
+
+- `/layanan/servis-komputer-laptop-banjarmasin/`
+- `/layanan/aplikasi-kustom-banjarmasin/`
+- `/layanan/undangan-digital-banjarmasin/`
+- `/layanan/instalasi-jaringan-wifi-banjarmasin/`
+
+Daftar semua layanan ada di `/layanan/`.
+
 Setelah mengubah, simpan file — kalau `npm run dev` sedang jalan, halaman langsung ter-update.
 
 ### Mengubah warna aksen

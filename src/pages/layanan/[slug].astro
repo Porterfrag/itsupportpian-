@@ -1,0 +1,15 @@
+---
+import LayananLayout from '../../layouts/LayananLayout.astro';
+import { layananPages } from '../../data/layanan';
+
+export function getStaticPaths() {
+  return layananPages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+---
+
+<LayananLayout page={page} />
