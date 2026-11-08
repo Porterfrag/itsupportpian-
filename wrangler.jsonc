@@ -3,13 +3,9 @@
   "name": "itsupportpian",
   "compatibility_date": "2026-11-08",
 
-  // Situs statis hasil `npm run build` (folder dist/)
+  // Situs statis: seluruh isi folder dist/ diupload sebagai asset.
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page",
-    "html_handling": "auto-trailing-slash"
-  },
-
-  // Domain produksi
-  "routes": [{ "pattern": "itsupportpian.my.id", "custom_domain": true }]
+    "not_found_handling": "404-page"
+  }
 }
