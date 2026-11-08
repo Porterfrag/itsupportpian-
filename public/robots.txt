@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://itsupportpian.com/sitemap-index.xml
+Sitemap: https://itsupportpian.my.id/sitemap-index.xml

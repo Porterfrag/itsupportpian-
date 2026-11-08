@@ -38,7 +38,7 @@ Di situ kamu bisa mengubah:
 | `site.waNumber` | Nomor WhatsApp format internasional, contoh `6281528493028` |
 | `site.email`, `site.instagram` | Kontak lain |
 | `site.area`, `site.hours` | Area layanan & jam buka |
-| `site.url` | Domain final (untuk SEO) — ganti setelah punya domain |
+| `site.url` | Domain final (untuk SEO). Sekarang: `https://itsupportpian.my.id` |
 | `services` | 4 kartu layanan + template pesan WhatsApp-nya |
 | `reasons` | Alasan "kenapa PIAN!" |
 | `steps` | Langkah cara kerja |
@@ -82,15 +82,32 @@ Cukup ganti file dengan nama yang sama, ukuran otomatis menyesuaikan.
 
 ---
 
-## 4. Cara publish (gratis)
+## 4. Cara publish
 
-### Cloudflare Pages (rekomendasi)
+Website ini sudah online di **<https://itsupportpian.my.id>**
+(deploy: Cloudflare Workers, fallback `itsupportpian.porterfrag.workers.dev`).
+
+### Deploy satu perintah (Cloudflare Workers)
+
+```bash
+npm run deploy      # build + upload ke Cloudflare
+```
+
+Pertama kali saja, login dulu:
+
+```bash
+npx wrangler login
+```
+
+Konfigurasi deploy ada di `wrangler.jsonc` (nama worker `itsupportpian`,
+asset dari folder `dist/`, domain `itsupportpian.my.id`).
+
+### Cloudflare Pages (alternatif, upload manual)
 
 1. Buat akun gratis di <https://pages.cloudflare.com>
 2. Upload folder `dist/` lewat menu **Create project → Direct upload**
    (jalankan `npm run build` dulu)
-3. Selesai — kamu dapat alamat `namamu.pages.dev`
-4. Kalau punya domain sendiri (misal `itsupportpian.com`), tinggal hubungkan di menu **Custom domains**
+3. Domain `itsupportpian.my.id` dihubungkan di menu **Custom domains**
 
 ### Vercel
 
@@ -110,7 +127,9 @@ Drag & drop folder `dist/` ke <https://app.netlify.com/drop>
    <https://business.google.com> dengan nomor WA yang sama. Ini yang bikin muncul
    di Google Maps saat orang cari "servis komputer Banjarmasin".
 2. **Google Search Console** — daftarkan domain, submit `sitemap-index.xml`.
-3. **Ganti `site.url`** di `src/data/site.ts` dan `public/robots.txt` ke domain final.
+3. **`site.url`** di `src/data/site.ts`, `site` di `astro.config.mjs`, dan `public/robots.txt`
+   sudah diset ke `https://itsupportpian.my.id`. Sitemap dibuat otomatis oleh
+   `@astrojs/sitemap` setiap kali `npm run build`.
 4. **Update bio Instagram** — taruh link website di bio @itsupportpian0.
 
 ---

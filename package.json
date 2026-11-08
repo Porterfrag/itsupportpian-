@@ -7,13 +7,18 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/plus-jakarta-sans": "^5.1.0",
     "@fontsource/anton": "^5.1.0",
     "@tailwindcss/vite": "^4.1.0",
     "astro": "^5.13.0",
     "tailwindcss": "^4.1.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.158.0"
   }
 }

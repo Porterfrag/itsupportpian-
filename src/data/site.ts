@@ -10,7 +10,7 @@ export const site = {
   tagline: 'Komputer pian lambat atawa error? Sini ulun anu akan!',
   description:
     'Jasa IT support di Banjarmasin: servis komputer & laptop, pembuatan aplikasi khusus, undangan digital, instalasi software dan jaringan. Ngobrol langsung pakai Bahasa Banjar.',
-  url: 'https://itsupportpian.com', // ganti setelah punya domain
+  url: 'https://itsupportpian.my.id',
   waNumber: '6281528493028', // format internasional, tanpa + dan tanpa spasi
   waDisplay: '0815 2849 3028',
   email: 'itsupportpian0@gmail.com',

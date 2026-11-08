@@ -1,9 +1,10 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
-// Ganti `site` dengan domain final setelah website di-deploy.
 export default defineConfig({
-  site: 'https://itsupportpian.com',
+  site: 'https://itsupportpian.my.id',
+  integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
   },
