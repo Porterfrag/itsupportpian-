@@ -102,6 +102,9 @@ npx wrangler login
 Konfigurasi deploy ada di `wrangler.jsonc` (nama worker `itsupportpian`,
 asset dari folder `dist/`, domain `itsupportpian.my.id`).
 
+> Catatan: workflow GitHub Pages bawaan template sudah dihapus. Deploy hanya
+> lewat Cloudflare, supaya tidak ada situs duplikat yang membingungkan Google.
+
 ### Cloudflare Pages (alternatif, upload manual)
 
 1. Buat akun gratis di <https://pages.cloudflare.com>
